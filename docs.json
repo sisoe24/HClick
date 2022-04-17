@@ -1,0 +1,288 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [
+      {
+        "def": "HClick:new(object)",
+        "desc": "Creates a new hclick object.",
+        "doc": "Creates a new hclick object.\n\nParameters:\n * object - A table with the key `appName` as the target application for the clicks.\n\nReturns:\n* An `hclick` object.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "233",
+        "name": "new",
+        "notes": [],
+        "parameters": [
+          " * object - A table with the key `appName` as the target application for the clicks."
+        ],
+        "returns": [
+          "* An `hclick` object."
+        ],
+        "signature": "HClick:new(object)",
+        "stripped_doc": "",
+        "type": "Constructor"
+      }
+    ],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "HClick:addClicks(clicks)",
+        "desc": "Add clicks to hclick object instance.",
+        "doc": "Add clicks to hclick object instance.\n\nParameters:\n * clicks - table containing the followings keys\n  * name - A string with the name of the click.\n  * shortcut - A string with the shortcut for click.\n  * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.\n  * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.\n  * predicateFn - An optional function which determines if the click should be executed. If it returns false, then the click will not be executed.\n  * executeBeforeFn - An optional function to call before the click is going to be executed.\n  * executeAfterFn - An optional function to call after the click was executed.\n  * clickMessage - An optional string with a message to shown when the click is executed.\n  * delay - An optional delay (in microseconds) between mouse down and up event. Defaults to 200000 (i.e. 200ms)\n  * focusBack - An optional boolean indicating if after the click, the initial application should take back the focus.\n\nReturns:\n * None.\n\nNotes:\n * Example:\n    ```lua\n    code:addClicks({\n      {\n        name = 'todo',\n        shortcut = 'alt l',\n        coordinates = '12.8125 479.09375',\n        delay = 0,\n        clickMessage = 'todo click',\n      },\n      {\n        name = 'ext',\n        shortcut = 'alt k',\n        coordinates = '43.703125 407.234375',\n        delay = 0,\n        focusBack = false,\n      }\n    })\n   ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "118",
+        "name": "addClicks",
+        "notes": [
+          " * Example:",
+          "    ```lua",
+          "    code:addClicks({",
+          "      {",
+          "        name = 'todo',",
+          "        shortcut = 'alt l',",
+          "        coordinates = '12.8125 479.09375',",
+          "        delay = 0,",
+          "        clickMessage = 'todo click',",
+          "      },",
+          "      {",
+          "        name = 'ext',",
+          "        shortcut = 'alt k',",
+          "        coordinates = '43.703125 407.234375',",
+          "        delay = 0,",
+          "        focusBack = false,",
+          "      }",
+          "    })",
+          "   ```"
+        ],
+        "parameters": [
+          " * clicks - table containing the followings keys\n   * name - A string with the name of the click.\n   * shortcut - A string with the shortcut for click.\n   * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.\n   * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.\n   * predicateFn - An optional function which determines if the click should be executed. If it returns false, then the click will not be executed.\n   * executeBeforeFn - An optional function to call before the click is going to be executed.\n   * executeAfterFn - An optional function to call after the click was executed.\n   * clickMessage - An optional string with a message to shown when the click is executed.\n   * delay - An optional delay (in microseconds) between mouse down and up event. Defaults to 200000 (i.e. 200ms)\n   * focusBack - An optional boolean indicating if after the click, the initial application should take back the focus."
+        ],
+        "returns": [
+          " * None."
+        ],
+        "signature": "HClick:addClicks(clicks)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HClick:bindHotKeys(mapping)",
+        "desc": "Bind hotkeys for HClick.",
+        "doc": "Bind hotkeys for HClick.\n\nParameters:\n * mapping - A `table` containing hotkey modifier/key details for the following items:\n   * copyCoordinatesLeft - Copy to the clipboard, the coordinates of the mouse position relative left origin focused app.\n   * copyCoordinatesRight - Copy to the clipboard, the coordinates of the mouse position relative right origin focused app.\n   * chooser - Alternative way of executing the clicks by a `hs.chooser` object.\n\nReturns:\n * None\n\nNotes:\n * After getting the coordinates, the entire function can be commented out if shortcuts are not needed.\n * Example:\n    ```lua\n    hclick = hs.loadSpoon('HClick')\n    hclick:bindHotKeys({\n      copyCoordinatesLeft = {{'ctrl', 'alt'}, 'c', message = 'Left Coords copied'},\n      copyCoordinatesRight = {{'ctrl', 'alt'}, 'v', message = 'Right Coords copied'},\n      chooser = {{'ctrl', 'alt'}, '0'}\n    })\n```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "59",
+        "name": "bindHotKeys",
+        "notes": [
+          " * After getting the coordinates, the entire function can be commented out if shortcuts are not needed.",
+          " * Example:",
+          "    ```lua",
+          "    hclick = hs.loadSpoon('HClick')",
+          "    hclick:bindHotKeys({",
+          "      copyCoordinatesLeft = {{'ctrl', 'alt'}, 'c', message = 'Left Coords copied'},",
+          "      copyCoordinatesRight = {{'ctrl', 'alt'}, 'v', message = 'Right Coords copied'},",
+          "      chooser = {{'ctrl', 'alt'}, '0'}",
+          "    })",
+          "```"
+        ],
+        "parameters": [
+          " * mapping - A `table` containing hotkey modifier/key details for the following items:\n   * copyCoordinatesLeft - Copy to the clipboard, the coordinates of the mouse position relative left origin focused app.\n   * copyCoordinatesRight - Copy to the clipboard, the coordinates of the mouse position relative right origin focused app.\n   * chooser - Alternative way of executing the clicks by a `hs.chooser` object."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "HClick:bindHotKeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HClick:enable()",
+        "desc": "Enables the `hclick` object.",
+        "doc": "Enables the `hclick` object.\n\nParameters:\n * None.\n\nReturns:\n * None.\n\nNotes:\n* If menubar option `isEnabled` is `true`, then will also initialize the menubar.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "186",
+        "name": "enable",
+        "notes": [
+          "* If menubar option `isEnabled` is `true`, then will also initialize the menubar."
+        ],
+        "parameters": [
+          " * None."
+        ],
+        "returns": [
+          " * None."
+        ],
+        "signature": "HClick:enable()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HClick:menubar(options)",
+        "desc": "Configuration options for the menubar.",
+        "doc": "Configuration options for the menubar.\n\nParameters:\n * options - A table containing the following items:\n   * `isEnable` - a boolean to indicate if menubar should be visible.\n   * `customMenuItems` - a menu table, with custom menu entries.\n\nReturns:\n * None.\n\nNotes:\n* `customMenuItems` format is the same used to create a regular menu\n    ```lua\n    {\n      {title = \"one\", fn = function() print(\"click\") end},\n      {title = \"-\"},\n      {title = \"two item\", checked = true}\n    }\n    ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "160",
+        "name": "menubar",
+        "notes": [
+          "* `customMenuItems` format is the same used to create a regular menu",
+          "    ```lua",
+          "    {",
+          "      {title = \"one\", fn = function() print(\"click\") end},",
+          "      {title = \"-\"},",
+          "      {title = \"two item\", checked = true}",
+          "    }",
+          "    ```"
+        ],
+        "parameters": [
+          " * options - A table containing the following items:\n   * `isEnable` - a boolean to indicate if menubar should be visible.\n   * `customMenuItems` - a menu table, with custom menu entries."
+        ],
+        "returns": [
+          " * None."
+        ],
+        "signature": "HClick:menubar(options)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Simulate a mouse click at specific point in some Application.",
+    "doc": "Simulate a mouse click at specific point in some Application.\n\nDownload:",
+    "items": [
+      {
+        "def": "HClick:addClicks(clicks)",
+        "desc": "Add clicks to hclick object instance.",
+        "doc": "Add clicks to hclick object instance.\n\nParameters:\n * clicks - table containing the followings keys\n  * name - A string with the name of the click.\n  * shortcut - A string with the shortcut for click.\n  * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.\n  * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.\n  * predicateFn - An optional function which determines if the click should be executed. If it returns false, then the click will not be executed.\n  * executeBeforeFn - An optional function to call before the click is going to be executed.\n  * executeAfterFn - An optional function to call after the click was executed.\n  * clickMessage - An optional string with a message to shown when the click is executed.\n  * delay - An optional delay (in microseconds) between mouse down and up event. Defaults to 200000 (i.e. 200ms)\n  * focusBack - An optional boolean indicating if after the click, the initial application should take back the focus.\n\nReturns:\n * None.\n\nNotes:\n * Example:\n    ```lua\n    code:addClicks({\n      {\n        name = 'todo',\n        shortcut = 'alt l',\n        coordinates = '12.8125 479.09375',\n        delay = 0,\n        clickMessage = 'todo click',\n      },\n      {\n        name = 'ext',\n        shortcut = 'alt k',\n        coordinates = '43.703125 407.234375',\n        delay = 0,\n        focusBack = false,\n      }\n    })\n   ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "118",
+        "name": "addClicks",
+        "notes": [
+          " * Example:",
+          "    ```lua",
+          "    code:addClicks({",
+          "      {",
+          "        name = 'todo',",
+          "        shortcut = 'alt l',",
+          "        coordinates = '12.8125 479.09375',",
+          "        delay = 0,",
+          "        clickMessage = 'todo click',",
+          "      },",
+          "      {",
+          "        name = 'ext',",
+          "        shortcut = 'alt k',",
+          "        coordinates = '43.703125 407.234375',",
+          "        delay = 0,",
+          "        focusBack = false,",
+          "      }",
+          "    })",
+          "   ```"
+        ],
+        "parameters": [
+          " * clicks - table containing the followings keys\n   * name - A string with the name of the click.\n   * shortcut - A string with the shortcut for click.\n   * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.\n   * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.\n  `table` containing hotkey modifier\/key details for the following items:",
+          "   * copyCoordinatesLeft - Copy to the clipboard, the coordinates of the mouse position relative left origin focused app.",
+          "   * copyCoordinatesRight - Copy to the clipboard, the coordinates of the mouse position relative right origin focused app.",
+          "   * chooser - Alternative way of executing the clicks by a `hs.chooser` object.",
+          ""
+        ]
+      },
+      {
+        "desc" : "Add clicks to hclick object instance.",
+        "stripped_doc" : [
+          "Add clicks to hclick object instance.",
+          ""
+        ],
+        "def" : "HClick:addClicks(clicks)",
+        "doc" : "Add clicks to hclick object instance.\n\nParameters:\n * clicks - table containing the followings keys\n  * name - A string with the name of the click.\n  * shortcut - A string with the shortcut for click.\n  * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.\n  * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.\n  * predicateFn - An optional function which determines if the click should be executed. If it returns false, then the click will not be executed.\n  * executeBeforeFn - An optional function to call before the click is going to be executed.\n  * executeAfterFn - An optional function to call after the click was executed.\n  * clickMessage - An optional string with a message to shown when the click is executed.\n  * delay - An optional delay (in microseconds) between mouse down and up event. Defaults to 200000 (i.e. 200ms)\n  * focusBack - An optional boolean indicating if after the click, the initial application should take back the focus.\n\nReturns:\n * None.\n\nNotes:\n * Example:\n    ```lua\n    code:addClicks({\n      {\n        name = 'todo',\n        shortcut = 'alt l',\n        coordinates = '12.8125 479.09375',\n        delay = 0,\n        clickMessage = 'todo click',\n      },\n      {\n        name = 'ext',\n        shortcut = 'alt k',\n        coordinates = '43.703125 407.234375',\n        delay = 0,\n        focusBack = false,\n      }\n    })\n   ```",
+        "notes" : [
+          " * Example:",
+          "    ```lua",
+          "    code:addClicks({",
+          "      {",
+          "        name = 'todo',",
+          "        shortcut = 'alt l',",
+          "        coordinates = '12.8125 479.09375',",
+          "        delay = 0,",
+          "        clickMessage = 'todo click',",
+          "      },",
+          "      {",
+          "        name = 'ext',",
+          "        shortcut = 'alt k',",
+          "        coordinates = '43.703125 407.234375',",
+          "        delay = 0,",
+          "        focusBack = false,",
+          "      }",
+          "    })",
+          "   ```"
+        ],
+        "signature" : "HClick:addClicks(clicks)",
+        "type" : "Method",
+        "returns" : [
+          " * None.",
+          ""
+        ],
+        "name" : "addClicks",
+        "parameters" : [
+          " * clicks - table containing the followings keys",
+          "  * name - A string with the name of the click.",
+          "  * shortcut - A string with the shortcut for click.",
+          "  * coordinates - A string with the coordinates gotten by using the one of the command provided: `copyCoordinatesLeft`, `copyCoordinatesRight`.",
+          "  * appOrigin - An optional string that indicates the side of the application from where the coordinates should be calculated.",
+          "  * predicateFn - An optional function which determines if the click should be executed. If it returns false, then the click will not be executed.",
+          "  * executeBeforeFn - An optional function to call before the click is going to be executed.",
+          "  * executeAfterFn - An optional function to call after the click was executed.",
+          "  * clickMessage - An optional string with a message to shown when the click is executed.
+ecuted.",
+          "  * 
+ items:\n   * `isEnable` - a boolean to indicate if menubar should be visible.\n   * `customMenuItems` - a menu table, with custom menu entries.\n\nReturns:\n * None.\n\nNotes:\n* `customMenuItems` format is the same used to create a regular menu\n    ```lua\n    {\n      {title = \"one\", fn = function() print(\"click\") end},\n      {title = \"-\"},\n      {title = \"two item\", checked = true}\n    }\n    ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "160",
+        "name": "menubar",
+        "notes": [
+          "* `customMenuItems` format is the same used to create a regular menu",
+          "    ```lua",
+          "    {",
+          "      {title = \"one\", fn = function() print(\"click\") end},",
+          "      {title = \"-\"},",
+          "      {title = \"two item\", checked = true}",
+          "    }",
+          "    ```"
+        ],
+        "parameters": [
+          " * options - A table containing the following items:\n   * `isEnable` - a boolean to indicate if menubar should be visible.\n   * `customMenuItems` - a menu table, with custom menu entries."
+        ],
+        "returns": [
+          " * None."
+        ],
+        "signature": "HClick:menubar(options)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HClick:new(object)",
+        "desc": "Creates a new hclick object.",
+        "doc": "Creates a new hclick object.\n\nParameters:\n * object - A table with the key `appName` as the target application for the clicks.\n\nReturns:\n* An `hclick` object.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "233",
+        "name": "new",
+        "notes": [],
+        "parameters": [
+          " * object - A table with the key `appName` as the target application for the clicks."
+        ],
+        "returns": [
+          "* An `hclick` object."
+        ],
+        "signature": "HClick:new(object)",
+        "stripped_doc": "",
+        "type": "Constructor"
+      }
+    ],
+    "name": "HClick",
+    "stripped_doc": "\nDownload:",
+    "submodules": [],
+    "type": "Module"
+  }
+]
