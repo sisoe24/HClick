@@ -1,5 +1,7 @@
 # HClick README
 
+> NOTE: Readme is still work in progress
+
 Simulate a mouse click at a specific point in some application.
 
 ## Features
@@ -60,7 +62,5 @@ This example will:
 5. Enable the object.
 
 > You can find a more advanced case in the example directory.
-
-TODO: Add some gif overview
 
 ## Known Issues
